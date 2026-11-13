@@ -1,0 +1,408 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope2Pay | Freelancer Workspace</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2 class="logo">Scope2Pay<span>.</span></h2>
+
+        <p class="nav-heading">WORKSPACE</p>
+
+        <nav>
+            <button class="nav-link active" data-page="dashboard">
+                Dashboard
+            </button>
+
+            <button class="nav-link" data-page="projects">
+                Projects
+            </button>
+
+            <button class="nav-link" data-page="analyzer">
+                AI Brief Analyzer
+            </button>
+
+            <button class="nav-link" data-page="quotations">
+                Quotations
+            </button>
+
+            <button class="nav-link" data-page="payments">
+                Payments
+            </button>
+
+            <button class="nav-link" data-page="settings">
+                Settings
+            </button>
+        </nav>
+
+        <div class="sidebar-footer">
+            Freelancer Workspace
+        </div>
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h2 id="pageTitle">Dashboard</h2>
+                <p>Manage your freelance business.</p>
+            </div>
+
+            <div class="profile">
+                Freelancer
+            </div>
+        </header>
+
+
+        <!-- DASHBOARD PAGE -->
+     
+<section class="page active" id="dashboard">
+
+    <div class="welcome">
+        <h1>Welcome to Scope2Pay</h1>
+        <p>Your freelance business, organized in one place.</p>
+    </div>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <p>Total Projects</p>
+            <h2 id="totalProjects">0</h2>
+        </div>
+
+        <div class="stat-card">
+            <p>Total Quotations</p>
+            <h2 id="totalQuotations">0</h2>
+        </div>
+
+        <div class="stat-card">
+            <p>Pending Payments</p>
+            <h2 id="dashboardPending">₹0</h2>
+        </div>
+
+        <div class="stat-card">
+            <p>Revenue</p>
+            <h2 id="dashboardRevenue">₹0</h2>
+        </div>
+
+    </div>
+
+    <div class="content-card">
+        <h3>Recent Projects</h3>
+        <div id="dashboardProjects">
+            <p>Loading projects...</p>
+        </div>
+    </div>
+
+</section>
+
+
+        <!-- PROJECTS PAGE -->
+        
+<section class="page" id="projects">
+
+    <div class="content-card">
+        <h2>My Projects</h2>
+        <p>Create and manage your client projects.</p>
+
+        <form id="projectForm">
+
+            <input
+                type="text"
+                id="clientName"
+                placeholder="Client Name"
+                required
+            >
+
+            <input
+                type="text"
+                id="projectName"
+                placeholder="Project Name"
+                required
+            >
+
+            <textarea
+                id="description"
+                placeholder="Project Description"
+            ></textarea>
+
+            <button type="submit">Create Project</button>
+
+        </form>
+    </div>
+
+    <div class="content-card">
+        <h2>All Projects</h2>
+
+        <div id="projectList">
+            <p>No projects loaded yet.</p>
+        </div>
+    </div>
+
+</section>
+
+
+
+        <!-- AI ANALYZER PAGE -->
+        
+<section class="page" id="analyzer">
+
+    <div class="content-card">
+        <h2>AI Client Brief Analyzer</h2>
+
+        <p>
+            Turn unstructured client requirements into
+            clear, actionable project specifications.
+        </p>
+
+        <div class="analyzer-input">
+            <label for="clientBrief">Client Requirements</label>
+
+            <textarea
+                id="clientBrief"
+                placeholder="Example: I need an ecommerce website with product listings, shopping cart, payment integration..."
+                rows="8"
+            ></textarea>
+
+            <button id="analyzeButton">
+                Analyze Brief
+            </button>
+        </div>
+    </div>
+
+    <div class="content-card" id="analysisResult">
+        <h2>Analysis Results</h2>
+
+        <div class="analysis-section">
+            <h3>Project Type</h3>
+            <p id="projectType">Waiting for analysis...</p>
+        </div>
+
+        <div class="analysis-section">
+            <h3>Identified Requirements</h3>
+            <ul id="requirementsList">
+                <li>No requirements identified yet.</li>
+            </ul>
+        </div>
+
+        <div class="analysis-section">
+            <h3>Missing Information</h3>
+            <ul id="missingInfoList">
+                <li>No missing information identified yet.</li>
+            </ul>
+        </div>
+
+        <div class="analysis-section">
+            <h3>Questions for Client</h3>
+            <ul id="questionsList">
+                <li>No questions generated yet.</li>
+            </ul>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+        <!-- QUOTATIONS PAGE -->
+        
+<section class="page" id="quotations">
+
+    <div class="content-card">
+        <h2>Quotations</h2>
+        <p>Create and manage professional client quotations.</p>
+
+        <form id="quotationForm">
+
+            <label for="quotationProjectId">Project ID</label>
+            <input
+                type="number"
+                id="quotationProjectId"
+                placeholder="Enter Project ID"
+                required
+            >
+
+            <label for="deliverables">Deliverables</label>
+            <textarea
+                id="deliverables"
+                placeholder="Describe what you will deliver..."
+                required
+            ></textarea>
+
+            <label for="timeline">Timeline</label>
+            <input
+                type="text"
+                id="timeline"
+                placeholder="Example: 14 days"
+                required
+            >
+
+            <label for="exclusions">Exclusions</label>
+            <textarea
+                id="exclusions"
+                placeholder="What is not included?"
+            ></textarea>
+
+            <label for="revisionLimit">Revision Limit</label>
+            <input
+                type="number"
+                id="revisionLimit"
+                min="0"
+                placeholder="Example: 2"
+                required
+            >
+
+            <label for="quotationPrice">Price (₹)</label>
+            <input
+                type="number"
+                id="quotationPrice"
+                min="0"
+                placeholder="Example: 15000"
+                required
+            >
+
+            <button type="submit">Create Quotation</button>
+
+        </form>
+    </div>
+
+    <div class="content-card">
+        <h2>Saved Quotations</h2>
+
+        <div id="quotationList">
+            Your saved quotations will appear here.
+        </div>
+    </div>
+
+</section>
+
+
+
+        <!-- PAYMENTS PAGE -->
+       <section class="page" id="payments">
+
+    <div class="content-card">
+        <h2>Payments</h2>
+        <p>Manage client payments and track payment status.</p>
+    </div>
+
+    <div class="content-card">
+        <h3>Record a Payment</h3>
+
+        <form id="paymentForm">
+
+            <label for="paymentQuotation">Select Quotation</label>
+            <select id="paymentQuotation" required>
+                <option value="">Select a quotation</option>
+            </select>
+
+            <label for="paymentAmount">Payment Amount (₹)</label>
+            <input
+                type="number"
+                id="paymentAmount"
+                min="0.01"
+                step="0.01"
+                placeholder="Enter amount"
+                required
+            >
+
+<label for="paymentMethod">Payment Method</label>
+<select id="paymentMethod">
+    <option value="Manual">Manual</option>
+    <option value="Bank Transfer">Bank Transfer</option>
+    <option value="UPI">UPI</option>
+    <option value="PayPal">PayPal Sandbox</option>
+</select>
+
+
+            <button type="submit">Record Payment</button>
+
+        </form>
+    </div>
+
+    <div class="content-card">
+        <div class="payment-summary">
+
+    <div class="content-card">
+        <h3>Total Recorded</h3>
+        <h2 id="totalPayments">₹0</h2>
+    </div>
+
+    <div class="content-card">
+        <h3>Paid Amount</h3>
+        <h2 id="paidAmount">₹0</h2>
+    </div>
+
+    <div class="content-card">
+        <h3>Pending Amount</h3>
+        <h2 id="pendingAmount">₹0</h2>
+    </div>
+
+</div>
+        <h3>Payment History</h3>
+        <div id="paymentList">
+            <p>Loading payments...</p>
+        </div>
+    </div>
+
+<div class="content-card">
+    <h3>Payment Progress</h3>
+    <div id="paymentProgress">
+        <p>Loading payment progress...</p>
+    </div>
+</div>
+
+
+<div class="payment-item">
+    <h3>PayPal Checkout</h3>
+    <p>Pay securely through PayPal Sandbox.</p>
+
+    <label for="paypalQuotationId">Quotation ID</label>
+    <input
+        type="number"
+        id="paypalQuotationId"
+        placeholder="Enter quotation ID"
+        min="1"
+    >
+
+    <button type="button" onclick="startPayPalCheckout()">
+        Pay with PayPal
+    </button>
+
+    <p id="paypalMessage"></p>
+</div>
+
+
+</section>
+
+        <!-- SETTINGS PAGE -->
+        <section class="page" id="settings">
+
+            <div class="content-card">
+                <h2>Settings</h2>
+
+                <p>Manage your freelancer workspace preferences.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
