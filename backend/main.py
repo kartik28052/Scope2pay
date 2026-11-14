@@ -1,4 +1,11 @@
 
+import os
+import requests
+from dotenv import load_dotenv
+
+# Load environment variables first
+load_dotenv()
+
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
@@ -7,14 +14,8 @@ from pydantic import BaseModel, Field
 import models
 from database import engine, Base, SessionLocal
 
-
 # Create database tables
 Base.metadata.create_all(bind=engine)
-import os
-import requests
-from dotenv import load_dotenv
-
-load_dotenv()
 
 PAYPAL_CLIENT_ID = os.getenv("PAYPAL_CLIENT_ID")
 PAYPAL_CLIENT_SECRET = os.getenv("PAYPAL_CLIENT_SECRET")
@@ -51,11 +52,11 @@ app = FastAPI(title="Scope2Pay API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://127.0.0.1:5500",
-        "http://localhost:5500",
-        "https://YOUR-FRONTEND.onrender.com"
-    ],
+   allow_origins=[
+    "http://127.0.0.1:5500",
+    "http://localhost:5500",
+    "https://scope2pay-frontend.onrender.com"
+],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
